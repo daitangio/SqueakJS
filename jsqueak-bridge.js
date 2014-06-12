@@ -11,8 +11,6 @@ var window=this;
 // Signal simple.js we are here:
 window.jsqueak=true;
 
-
-
 var navigator={};
 navigator.standalone=false;
 document={};
@@ -30,6 +28,5 @@ document.getElementsByTagName=function(obj){
 //     return window;
 // }
 
+print("Minimal bridge ok");
 
-print("Headless support ok document="+document);
-print("Java Bridge....");

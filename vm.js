@@ -1719,6 +1719,15 @@ Object.subclass('users.bert.SqueakJS.vm.Interpreter',
 },
 'numbers', {
     getClass: function(obj) {
+
+	// GG WORKAROUND
+	console.log("Called getClass "+obj);
+/*
+	if(!obj){
+	    console.log("Undefined:"+obj );
+	    return  this.specialObjects[Squeak.splOb_NilObject];
+	}
+*/
         if (this.isSmallInt(obj))
             return this.specialObjects[Squeak.splOb_ClassInteger];
         return obj.sqClass;
