@@ -144,31 +144,53 @@ window.onload = function() {
         return display;
     };
     function loadAndRunImage(url) {
-        var progress = document.getElementsByTagName("progress")[0];
-        var rq = new XMLHttpRequest();
-        rq.open('GET', url);
-        rq.responseType = 'arraybuffer';
-        rq.onprogress = function(e) {
-            if (e.lengthComputable) progress.value = 100 * e.loaded / e.total;
-        }
-        rq.onload = function(e) {
-            progress.style.display = "none";
-            canvas.focus();
-            var image = new users.bert.SqueakJS.vm.Image(rq.response, url);
-            var vm = new users.bert.SqueakJS.vm.Interpreter(image, createDisplay());
-            var run = function() {
-                var ms = vm.interpret(20);
-                if (typeof ms === 'number') { // continue running
-                    window.setTimeout(run, ms);
-                } else { // quit
-                    canvas.style.webkitTransition = "-webkit-transform 0.5s";
-                    canvas.style.webkitTransform = "scale(0)";
-                    window.setTimeout(function(){canvas.style.display = 'none'}, 500);
-                }
+	if(window.jsqueak){
+	    print("Running under jsqueak Headless");
+	    //Load the image somewhat...
+	    var file =  new java.io.File("demo/mini.image");
+	    print("Loading:"+file);
+	    
+	    image_file={};
+	    var image = new users.bert.SqueakJS.vm.Image(image_file,"");
+	    var vm = new    users.bert.SqueakJS.vm.Interpreter(image, createDisplay());
+	    var run = function() {
+		while(true){
+                    var ms = vm.interpret(20);
+		    if (typeof ms === 'number') { // continue running
+		    }else{
+			exit(0);
+		    }
+		}
+	    };
+	    run();
+	    
+	}else {
+            var progress = document.getElementsByTagName("progress")[0];
+            var rq = new XMLHttpRequest();
+            rq.open('GET', url);
+            rq.responseType = 'arraybuffer';
+            rq.onprogress = function(e) {
+		if (e.lengthComputable) progress.value = 100 * e.loaded / e.total;
+            }
+            rq.onload = function(e) {
+		progress.style.display = "none";
+		canvas.focus();
+		var image = new users.bert.SqueakJS.vm.Image(rq.response, url);
+		var vm = new users.bert.SqueakJS.vm.Interpreter(image, createDisplay());
+		var run = function() {
+                    var ms = vm.interpret(20);
+                    if (typeof ms === 'number') { // continue running
+			window.setTimeout(run, ms);
+                    } else { // quit
+			canvas.style.webkitTransition = "-webkit-transform 0.5s";
+			canvas.style.webkitTransform = "scale(0)";
+			window.setTimeout(function(){canvas.style.display = 'none'}, 500);
+                    }
+		};
+		run();
             };
-            run();
-        };
-        rq.send();
+            rq.send();
+	}
     };
     loadAndRunImage('mini.image');
 };
