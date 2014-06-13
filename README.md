@@ -35,6 +35,17 @@ The reason for having to run from a web server is because the mini.image is load
 * get a Squeak morph from the PartsBin
 * save the world under a different name 
 
+
+How to run it in Java
+----------------------
+
+**Headless Java run**
+It is possible to run a 'headless' image inside the Jdk8 Nashorn JavaScript interpreter.
+You will get access to Javaz for free.
+Take a loog to the [js-bridge/README.md]
+
+
+
 How to modify it
 ----------------
 **In Lively**

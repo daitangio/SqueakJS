@@ -1,6 +1,10 @@
 var createDisplay=function(){
 
     var headlessCtx={
+	// var pixels = ctx.createImageData(rect.w, rect.h);
+	// pixels.width
+	// ctx.putImageData(pixels, rect.x, rect.y);
+	// ctx.pointers
 	createImageData:null
     };
 
