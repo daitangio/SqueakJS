@@ -1,3 +1,5 @@
+// GG see http://justmy2bits.com/2013/09/08/javafx-with-nashorn-canvas-example/
+// for a complete example
 var File                 = Java.type("java.io.File");
 var Image                = Java.type("javafx.scene.image.Image");
 var Color                = Java.type("javafx.scene.paint.Color");
