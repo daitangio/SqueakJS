@@ -1,4 +1,5 @@
 #!/bin/bash
 # Short circuit
-/home/jj/jdk1.8.0_05/bin/jjs -fv -fx -Djavafx.animation.fullspeed=true  -cp lib/commons-io-1.4.jar   jsqueak-bridge.js 
+export JAVA_HOME=/home/jj/jdk1.8.0_05/
+$JAVA_HOME/bin/jjs -fv -fx -Djavafx.animation.fullspeed=true  -cp lib/commons-io-1.4.jar   jsqueak-bridge.js 
 #/home/jj/jdk1.8.0_05/bin/jjs -fv  jsqueak-bridge.js demo/simple.js   vm.js   demo/SimplePlugin.js  jsqueak-headless-start.js 

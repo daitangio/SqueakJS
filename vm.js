@@ -2284,6 +2284,9 @@ Object.subclass('users.bert.SqueakJS.vm.Primitives',
             case 245: return false; // primStringindexOfAsciiinStringstartingAt
             case 246: return false; // primStringfindSubstringinstartingAtmatchTable
             case 254: return this.primitiveVMParameter(argCount);
+
+	    /** GG **/
+	    case 1993: return window.JavaPrim1993.primitive(argCount);
         }
         throw Error("primitive " + index + " not implemented yet");
         return false;

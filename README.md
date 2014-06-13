@@ -42,7 +42,7 @@ How to run it in Java
 **Headless Java run**
 It is possible to run a 'headless' image inside the Jdk8 Nashorn JavaScript interpreter.
 You will get access to Javaz for free.
-Take a loog to the [js-bridge/README.md]
+Take a look to the [jsqueak/README.md][jsqueak/README.md]
 
 
 
