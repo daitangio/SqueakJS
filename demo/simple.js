@@ -144,27 +144,7 @@ window.onload = function() {
         return display;
     };
     function loadAndRunImage(url) {
-	if(window.jsqueak){
-	    print("Running under jsqueak Headless");
-	    //Load the image somewhat...
-	    var file =  new java.io.File("demo/mini.image");
-	    print("Loading:"+file);
-	    
-	    image_file={};
-	    var image = new users.bert.SqueakJS.vm.Image(image_file,"");
-	    var vm = new    users.bert.SqueakJS.vm.Interpreter(image, createDisplay());
-	    var run = function() {
-		while(true){
-                    var ms = vm.interpret(20);
-		    if (typeof ms === 'number') { // continue running
-		    }else{
-			exit(0);
-		    }
-		}
-	    };
-	    run();
-	    
-	}else {
+
             var progress = document.getElementsByTagName("progress")[0];
             var rq = new XMLHttpRequest();
             rq.open('GET', url);
@@ -189,10 +169,9 @@ window.onload = function() {
 		};
 		run();
             };
-            rq.send();
-	}
+            rq.send();	
     };
-    loadAndRunImage('mini.image');
+    loadAndRunImage('java-interop.image');
 };
 
 var addToHomeConfig = {touchIcon: true};

@@ -5,8 +5,6 @@
 
 var window=this;
 
-// Signal simple.js we are here:
-window.jsqueak=true;
 
 var navigator={};
 navigator.standalone=false;

@@ -2286,7 +2286,7 @@ Object.subclass('users.bert.SqueakJS.vm.Primitives',
             case 254: return this.primitiveVMParameter(argCount);
 
 	    /** GG **/
-	    case 1993: return window.JavaPrim1993.primitive(argCount);
+	    // case 1993: return this.popNandPushIfOK(2,window.JavaPrim1993.primitive(argCount,this.vm));
         }
         throw Error("primitive " + index + " not implemented yet");
         return false;

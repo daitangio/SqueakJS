@@ -1,0 +1,1 @@
+'From Squeak 2.2 of Sept 23, 1998 on 14 June 2014 at 10:38:43 am'!!Behavior methodsFor: 'java-interop'!javaNew: t1 	<primitive: 117>	#(JavaPlugin javaNew 0 -1 ).	^ self primitiveFailed! !
